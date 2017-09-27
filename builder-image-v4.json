@@ -1,0 +1,37 @@
+{
+  "kind": "ImageStreamList",
+  "apiVersion": "v1",
+  "metadata": {},
+  "items": [
+    {
+      "kind": "ImageStream",
+      "apiVersion": "v1",
+      "metadata": {
+        "name": "zeptobuilderimage",
+        "annotations": {
+          "openshift.io/display-name": "Node.js builder image"
+        }
+      },
+      "spec": {
+        "tags": [
+          {
+            "name": "latest",
+            "annotations": {
+              "openshift.io/display-name": "Node.js builder image",
+              "description": "Will create an environment for loopback apis, installs all the prerequisites for a loopback API applications like nodejs, centos7, oracle instant client, git, gcc etc",
+              "iconClass": "icon-nodejs",
+              "tags": "builder,nodejs,centos7,oracle",
+              "supports":"nodejs:6,nodejs",
+              "version": "6",
+              "sampleRepo": "https://github.com/openshift/nodejs-ex.git"
+            },
+            "from": {
+              "kind": "DockerImage",
+              "name": "adnanmalick/nodejs-builder"
+            }
+          }
+        ]
+      }
+    }
+  ]
+}
